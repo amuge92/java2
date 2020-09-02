@@ -15,6 +15,10 @@ import java.awt.event.KeyListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
@@ -38,7 +42,7 @@ import javax.swing.border.Border;
 import javax.swing.border.LineBorder;
 import javax.swing.JOptionPane;
 
-class Fra extends JFrame {
+class FraDB extends JFrame {
 	int cx = 1;
 	int i = 0;
 	int n = 1;
@@ -46,117 +50,47 @@ class Fra extends JFrame {
 	ImageIcon img1 = new ImageIcon("C:\\Users\\Lee\\Desktop\\스레드.jpg");
 	JLabel jim;
 
-	public static void main(String[] args) {
-		new Fra();
+	PreparedStatement savenew = null;
+	PreparedStatement savebor = null;
+	Connection conn = null; // DB와 연결하는 인터페이스
+
+	public static void main(String[] args) throws SQLException {
+		new FraDB();
 
 	}
 
-	Fra() {
+	FraDB() throws SQLException {
 		String name[] = new String[20];
 		String phone1[] = new String[20]; // 연락처 가운데 4자리
 		String phone2[] = new String[20]; // 연락처 마지막 4자리
 
+		PreparedStatement pstm = null; // sql문 객체
+		ResultSet r = null;// sql에 대한 반환
 		HashMap<Integer, Book> mh = new HashMap<Integer, Book>();
-		Book bk = new Book(1, "소나기", "황순원", "한빛문고",
-				"원로 소설가 황순원 선생의 소설들 가운데 초기 작품"
-						+ " 에 속하는 서정적 성장기 소설인 <소나기>, <닭제>, <산골아이>, <별>, <송아지> 등 5편의 단편을 삽화와 함께 실었다.",
-				"C:\\Users\\Lee\\Desktop\\img\\소나기.PNG", 1);
-		mh.put(bk.book_id, bk);
-		Book bk2 = new Book(2, "19세", "이순원", "문의당",
-				"작가의 개인적 체험을 바탕으로 13세부터 19세까지 성장해 가는 소년의 내면을 따뜻한 시선으로 그린 성장기 소설. \r\n"
-						+ "빨리 어른이 되고 싶어하는 소년의 욕망과 꿈이 오래된 사진첩을 펼쳐 보는 것처럼 정감 어린 어투로 생생하게 묘사되어 있다. \r\n"
-						+ "원작의 스토리를 580매로 개작했다.\r\n" + "중학생들과 예비 수험생들이 읽을 만한 우리 소설은 없을까? \r\n"
-						+ "1960년대 이후 국내에서 출간된 장편소설 중에서 문학성이 뛰어나고 청소년 정서에 적합한 작품을 선별했다. \r\n"
-						+ "원작의 문학성과 작품성이 훼손되지 않는 범위에서 소설의 분량과 이야기 구성을 독자층의 눈높이에 맞추어 작가가 직접 손질한 시리즈.\r\n" + "",
-				"C:\\Users\\Lee\\Desktop\\img\\19세.png", 1);
-		mh.put(bk2.book_id, bk2);
-		Book bk3 = new Book(3, "Do it!HTML5+CSS3 웹 표준의 정석", "고경희", "이지스퍼블리싱",
-				"《Do it! HTML5+CSS3 웹 표준의 정석》이 전면 개정 2판으로 더욱 새로워졌다. \r\n"
-						+ "최신 HTML5, CSS3 표준안 반영은 물론 코딩이 처음인 독자도 쉽고 빠르게 예제를 \r\n"
-						+ "따라해 볼 수 있는 실습 환경을 제공하여 웹 개발 환경에 빠르게 적응할 수 있도록 했다.\r\n"
-						+ "또한 독자들이 직접 만들면서 실습하고, 배운 내용을 복습하고, 연습문제까지 풀어보는 \r\n"
-						+ "학습 설계로 구성되어 있어 한번 배운 내용을 절대로 까먹지 않는다.\r\n" + "",
-				"C:\\Users\\Lee\\Desktop\\img\\자바스크립트.png", 4);
-		mh.put(bk3.book_id, bk3);
-		Book bk4 = new Book(4, "나의 리틀 포레스트", "박영규", "야옹서가", "한 아버지가 있다. 취업준비생 큰딸, 입시생 작은딸과는 대화가 끊긴 지 오래고, \r\n"
-				+ "집안 실세인 아내 앞에선 눈치 보는 신세. 가족과 살면서도 왠지 모를 소외감을 느끼던 그에게 \r\n"
-				+ "뜻밖의 새 가족이 생긴다. 바로 큰딸이 돌보던 길고양이 '야옹이'다.\r\n" + "이 책은 큰딸의 설득에 넘어가 떠밀리듯 고양이 세계에 발을 들인 50대 인문학자가, \r\n"
-				+ "자신도 모르게 캣대디(길고양이에게 밥 주는 사람)가 되면서 가족애를 회복하고 마음의 평안을 \r\n" + "얻는 과정을 아버지의 시선으로 유쾌하게 그린 가족 드라마다. \r\n"
-				+ "저자는 야옹이를 돌보며 \"온기 있는 생명을 보살핀다는 건, 자기 자신을 보듬는 일이기도 하다\"는 것을 깨닫는다. \r\n"
-				+ "\"온기 있는 생물은 모두 의지가 되는 법이야\"라던 영화 [리틀 포레스트] 속 한 장면처럼.\r\n" + "",
-				"C:\\Users\\Lee\\Desktop\\img\\나의리틀포레스트.png", 3);
-		mh.put(bk4.book_id, bk4);
-		Book bk5 = new Book(5, "너는 물처럼 내게 밀려오라", "이정하", "문의당",
-				"수백만 독자들의 가슴을 적신 시집 <너는 눈부시지만 나는 눈물겹다>로 \r\n" + "사랑하는 사람의 슬픈 이면을 감동적으로 그려 낸 이정하 시인의 시산문집. \r\n"
-						+ "그동안 수많은 독자들이 사랑했던 시들과 새로 쓴 시 여러 편, 그리고 왜 이 시를 써야 했는지에 대한 \r\n"
-						+ "작가의 시작 노트를 묶어 함께 엮었다. 시로 다할 수 없는 이야기, 시 속에 감춰진 작가의 진솔한 고백들이 담겨 있다.\r\n" + "",
-				"C:\\Users\\Lee\\Desktop\\img\\너는 물처럼 내게 밀려오라.png", 2);
-		mh.put(bk5.book_id, bk5);
+		try {
+			String que = "select * from book_list";
+			conn = DB.get();
+			pstm = conn.prepareStatement(que);
+			r = pstm.executeQuery();
 
-		Book bk6 = new Book(6, "아무튼,메모", "정혜윤", "위고", "<아무튼, 메모>는 메모는 삶을 위한 재료이자 예열 과정이라고 믿는 한 메모주의자의 기록으로, \r\n"
-				+ "비메모주의자가 메모주의자가 되고, 꿈이 현실로 부화하고, 쓴 대로 살 게 된 이야기이다.\r\n" + " 그리고 무엇보다 메모장 안에서 더 용감해진 이야기이다.\r\n" + "",
-				"C:\\Users\\Lee\\Desktop\\img\\아무튼메모.PNG", 2);
-		mh.put(bk6.book_id, bk6);
-		Book bk7 = new Book(7, "아무튼,술", "김혼비", "제철소",
-				"아무튼 시리즈의 스무 번째 이야기는 '술'이다. \r\n" + "<우아하고 호쾌한 여자 축구>의 김혼비 작가가 쓴 두 번째 에세이로,\r\n"
-						+ " '생각만 해도 좋은 한 가지'에 당당히 \"술!\"이라고 외칠 수 있는 세상 모든 술꾼들을 위한 책이다.\r\n"
-						+ " \"술을 말도 안 되게 좋아해서 이 책을 쓰게\" 된 작가는 수능 백일주로 시작해 술과 함께 \r\n"
-						+ "익어온 인생의 어떤 부분들, 그러니까 파란만장한 주사(酒史)를 술술 펼쳐놓는다.\r\n" + "",
-				"C:\\Users\\Lee\\Desktop\\img\\아무튼술.png", 2);
-		mh.put(bk7.book_id, bk7);
-		Book bk8 = new Book(8, "아무튼,스윙", "김선영", "위고",
-				"금요일 밤에는 택시를 달려 최대한 빨리 가야 할 곳이 있다.\r\n" + " 흥겨운 재즈 음악이 가득 울리고, 백 명도 넘는 사람들이 다 함께 스윙을 추고 있는 곳. \r\n"
-						+ "개구쟁이 같은 표정으로 춤을 추는 댄서들이 이따금 빵 하고 시원한 웃음을 터뜨리는 곳. \r\n"
-						+ "<아무튼, 스윙>은 생각이 많아 모든 시작이 어려웠던 편집자가 직장인이 되기 위해 떠났고, \r\n"
-						+ "다시 직장인으로 살기 위해 돌아온 스윙에 관한 이야기다. 즐거울 때보다 슬플 때 더 생각나는, \r\n"
-						+ "울고 싶은 마음이 들면 떠올리는, 위로와 같은 '댄스'에 관한 이야기.\r\n" + "",
-				"C:\\Users\\Lee\\Desktop\\img\\아무튼스윙.png", 2);
-		mh.put(bk8.book_id, bk8);
-		Book bk9 = new Book(9, "우리들의 일그러진 영웅", "이문열", "다림",
-				"요즘처럼 왕따가 심한 때에 당하는 아이의 심리와 가하는 아이들의 모습들이 잘 나타나 있다. \r\n"
-						+ "불의에 대해 저항도 해보지만 담임 선생님의 무관심에 그 힘은 꺽이고 만다. \r\n"
-						+ "당하는 아이의 처절한 굴종과 패배감이 어른이 되어서 어떤 인격체로 자라는가가 마음에 다가온다.\r\n" + "",
-				"C:\\Users\\Lee\\Desktop\\img\\우리들의 일그러진 영웅.png", 2);
-		mh.put(bk9.book_id, bk9);
-		Book bk10 = new Book(10, "Do it!자바스크립트+제이쿼리 입문", "정인용", "이지스퍼블리싱",
-				"4년 연속 베스트셀러, Do it! 자바스크립트 + 제이쿼리 입문의 전면 개정판으로, \r\n" + "자바스크립트, 제이쿼리의 기본부터 실전에 필요한 핵심까지 모두 담았다. \r\n"
-						+ "프런트엔드 실무 교육 경력 10년 강사가 엄선한 155개의 예제로 기본부터 실무 활용까지 \r\n" + "완벽하게 대비할 수 있다.\r\n" + "",
-				"C:\\Users\\Lee\\Desktop\\img\\자바스크립트.png", 2);
-		mh.put(bk10.book_id, bk10);
-		Book bk11 = new Book(11, "정보처리산업기사(필기)", "김정준", "길벗",
-				"지금까지 출제된 모든 기출문제를 통계적으로 분석하여 시험에 나오는 것만 골라 172개의 섹션, \r\n"
-						+ "701개의 필드로 정리했다. 섹션은 시험에 출제된 비율에 따라 A, B, C, D 등급을 지정하고, \r\n"
-						+ "각 필드에는 시험에 나온 출제연도를 표기하여 수험생이 더 효율적으로 공부할 수 있도록 했다.\r\n" + "",
-				"C:\\Users\\Lee\\Desktop\\img\\정처기.png", 2);
-		mh.put(bk11.book_id, bk11);
-		Book bk12 = new Book(12, "정보처리" + "\r\n" + "산업기사(실기)", "김정준", "길벗",
-				"시험에서 한 개의 문제로 출제될 테마를 하나의 섹션으로 구성하여 개념을 이해하고\r\n"
-						+ " 문제를 풀 수 있는 능력을 키울 수 있도록 충분한 내용과 자세한 해설을 수록하였다. \r\n"
-						+ "또한, 섹션별 내용 설명이 끝날 때마다 ‘예상 문제 은행’을 제공한다. \r\n"
-						+ "본문에서 배운 내용이 시험에서 어떻게 출제될 것인지 살펴보고 미리 풀어보면서 연습할 수 있다. \r\n"
-						+ "각 섹션은 출제된 비율에 따라 A, B, C, D 등급을 지정하여 중요한 내용을 먼저 볼 수 있다.\r\n" + "",
-				"C:\\Users\\Lee\\Desktop\\img\\정처기2.png", 2);
-		mh.put(bk12.book_id, bk12);
-		Book bk13 = new Book(13, "청춘의 문장들", "김연수", "마음산책",
-				"등단 이후 여섯 권의 소설을 펴냈으며 2003년 동인문학상을 수상한 김연수는 올해 서른다섯이다. \r\n"
-						+ "꾸준하게 잰 걸음으로 나아가는 그에게 첫 번째이자 마지막인(작가의 말에 따르면) 이 산문집의 의미는 무엇일까.\r\n" + "",
-				"C:\\Users\\Lee\\Desktop\\img\\청춘의문장들.png", 2);
-		mh.put(bk13.book_id, bk13);
-		Book bk14 = new Book(14, "스토너", "존 월리엄스", "민음사",
-				"전 세계 수많은 문학 애호가들의 인생 소설로 손꼽히는 명작 《스토너》가 1965년 미국에서 처음 발행됐을 때의 표지로 출간된다. \r\n"
-						+ "이번 에디션에서는 기존 판의 문장을 다듬고 문학평론가 신형철의 추천사 전문을 실었다. \r\n" + "또한 초판에 담긴 일러스트레이션을 완벽히 재현했다.\r\n"
-						+ "\r\n" + "",
-				"C:\\Users\\Lee\\Desktop\\img\\스토너.png", 2);
-		mh.put(bk14.book_id, bk14);
-		Book bk15 = new Book(15, "너의 낯섦은 나의 낯섦", "아도니스", "민음사",
-				"민음사 세계시인선 42권. 아도니스의 대표 시 선집. 매년 유력한 노벨문학상 후보로 꼽히곤 \r\n"
-						+ "하는 시인 아도니스에 대한 호기심과 현대 아랍 문학에 대한 전문적인 관심 모두를 충족할 \r\n"
-						+ "한 권의 시집이 도착했다. 이번 책은 세계적으로 알려진 작가지만 아직 우리에게는 낯선 이름인\r\n"
-						+ " 아도니스, 그의 문학 인생 전반에 걸친 대표시를 뽑아 구성하였다. \r\n"
-						+ "문학으로 아랍의 현대화를 위해 평생 애썼던 아도니스의 변혁과 혁신은 현재 진행형이다.\r\n" + "",
-				"C:\\Users\\Lee\\Desktop\\img\\너의 낯섦은 나의 낯섦.png", 2);
-		mh.put(bk15.book_id, bk15);
+			while (r.next()) {
+				String s_bookname = r.getString(1);
+				String s_publisher = r.getString(2);
+				String s_writer = r.getString(3);
+				String a_plot = r.getString(4);
+				int b_id = r.getInt(5);
+				String b_img = r.getString(6);
+				String genre = r.getString(7);
+				Book dbbook = new Book(b_id, s_bookname, s_writer, s_publisher, a_plot, b_img, genre);
+				mh.put(b_id, dbbook);
+			}
 
+		} catch (SQLException e) {
+			System.out.println("예외발생");
+			e.printStackTrace();
+		}
+		r.close();
+//		pstm.close();
 		JFrame frm = new JFrame("도서 대여 프로그램");
 		Container c = frm.getContentPane();
 		c.setBackground(new Color(244, 164, 96));
@@ -265,7 +199,6 @@ class Fra extends JFrame {
 		SpinnerDateModel model = new SpinnerDateModel(today, today, null, Calendar.DAY_OF_MONTH);
 		// (표기할 날짜,최소,최대,바꿀 부분)
 		JSpinner tf6 = new JSpinner(model);
-
 		JSpinner.DateEditor editor = new JSpinner.DateEditor(tf6, "yyyy-MM-dd");
 		JFormattedTextField rentday = editor.getTextField();
 		rentday.setEditable(false);
@@ -276,8 +209,8 @@ class Fra extends JFrame {
 		// 반납일을 기본적으로 오늘날짜의+7로 설정해두고 대여자가 반납일을 +,-할수있음 최대 15일까지 가능
 		SpinnerDateModel model1 = new SpinnerDateModel(nomal, today, max, Calendar.DAY_OF_MONTH);
 		JSpinner tf7 = new JSpinner(model1);
-
 		JSpinner.DateEditor editor1 = new JSpinner.DateEditor(tf7, "yyyy-MM-dd");
+
 		JFormattedTextField rentday1 = editor1.getTextField();
 		rentday1.setEditable(true);
 		rentday1.setHorizontalAlignment(JTextField.CENTER);
@@ -301,6 +234,8 @@ class Fra extends JFrame {
 				tf1.setText("");
 			}
 		});
+		HashMap<Integer, Book> save = new HashMap<Integer, Book>();
+		HashMap<Integer, Integer> savekey = new HashMap<Integer, Integer>();
 		tf1.addKeyListener(new KeyAdapter() {
 			public void keyTyped(KeyEvent arg0) {
 
@@ -323,7 +258,8 @@ class Fra extends JFrame {
 										jop.showConfirmDialog(null, "한번에 4권까지만 대여 가능합니다.", "확인",
 												JOptionPane.PLAIN_MESSAGE);
 									} else if (a == 0) {
-
+										save.put(b.book_id, b);
+										savekey.put(cx, b.book_id);
 										JLabel pl1 = new JLabel(b.getBook_name());
 										JLabel pl2 = new JLabel(b.getWriter());
 										JLabel pl3 = new JLabel(b.getPublisher());
@@ -348,7 +284,7 @@ class Fra extends JFrame {
 							j.addMouseListener(new Lo(b));
 
 							j.addMouseListener(new MouseAdapter() {
-								
+
 								public void mouseExited(MouseEvent e) {
 									j.setForeground(Color.black);
 								}
@@ -400,7 +336,6 @@ class Fra extends JFrame {
 
 		// JButton 생성
 		JButton btn1 = new JButton("OK");// 검색
-
 		btn1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				jp1.removeAll();
@@ -424,6 +359,8 @@ class Fra extends JFrame {
 									JLabel pl1 = new JLabel(b.getBook_name());
 									JLabel pl2 = new JLabel(b.getWriter());
 									JLabel pl3 = new JLabel(b.getPublisher());
+									save.put(b.book_id, b);
+									savekey.put(cx, b.book_id);
 									pl1.setBounds(0, 24 * cx, 73, 24);
 									pl2.setBounds(73, 24 * cx, 73, 24);
 									pl3.setBounds(146, 24 * cx, 74, 24);
@@ -490,6 +427,25 @@ class Fra extends JFrame {
 					phone2[i] = tf11.getText();// 연락처 마지막 4자리
 					i++;
 					btn4.setEnabled(false);
+					for (int i = 0; i < save.size(); i++) {
+						try {
+							savebor = conn.prepareStatement("insert into borrow_list values(?,?,?,?,?,?)");
+							savebor.setString(1, tf2.getText());
+							savebor.setString(2, year[box1.getSelectedIndex()] +"/"+ month[box2.getSelectedIndex()]
+									+"/"+ day[box3.getSelectedIndex()]);
+							savebor.setString(3, rentday.getText());
+							savebor.setString(4, rentday1.getText());
+							savebor.setInt(5, save.get(savekey.get(i+1)).book_id);
+							savebor.setInt(6, Integer.parseInt(phone_number[box7.getSelectedIndex()]
+									.concat(tf10.getText().concat(tf11.getText()))));
+							
+							conn.setAutoCommit(true);
+							savebor.executeUpdate();
+						} catch (SQLException e1) {
+							// TODO Auto-generated catch block
+							e1.printStackTrace();
+						}
+					}
 					Thread t = new Thread() {
 						public void run() {
 							try {
@@ -542,6 +498,20 @@ class Fra extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				new JOptionPane().showConfirmDialog(null, "도서 신청을 하시겠습니까?", "확인", JOptionPane.OK_CANCEL_OPTION,
 						JOptionPane.INFORMATION_MESSAGE);
+				try {
+
+					savenew = conn.prepareStatement("insert into new_book values(?,?,?)");
+					savenew.setString(1, tf8.getText());
+					savenew.setString(2, tf9.getText());
+					savenew.setString(3, tf0.getText());
+					conn.setAutoCommit(true);
+
+					savenew.executeUpdate();
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+
 			}
 		});
 		// JComboBox 위치와 크기 설정
@@ -626,7 +596,8 @@ class Fra extends JFrame {
 					if (cx >= 5) {
 						jop.showConfirmDialog(null, "한번에 4권까지만 대여 가능합니다.", "확인", JOptionPane.PLAIN_MESSAGE);
 					} else if (a == 0) {
-
+						save.put(b.book_id, b);
+						savekey.put(cx, b.book_id);
 						JLabel pl1 = new JLabel(b.getBook_name());
 						JLabel pl2 = new JLabel(b.getWriter());
 						JLabel pl3 = new JLabel(b.getPublisher());
@@ -761,9 +732,8 @@ class Fra extends JFrame {
 
 		// 프레임이 보이도록 설정
 		frm.setVisible(true);
-		
-		
-		
-		
+
+//		conn.close();
+
 	}
 }

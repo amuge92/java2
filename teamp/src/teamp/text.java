@@ -7,6 +7,7 @@ import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -46,7 +47,12 @@ public class text extends JFrame {
 		b.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				b.setBackground(Color.BLUE);
-				new Fra();
+				try {
+					new FraDB();
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 				dispose();
 			}
 		});
