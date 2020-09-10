@@ -1126,10 +1126,7 @@ for(var a in ary){
 </body>
 
 </html> -->
-
-
-
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="kor">
 
 <head>
@@ -1142,16 +1139,516 @@ for(var a in ary){
 <body>
     <script>
         var n = [];
-       n.push({
-           name:'이오섭'
-           ,age:29
-           ,add:'경기'
-           ,jop:'백수'
-       })
-       
+        n.push({
+            name: '이오섭'
+            , age: 29
+        }, {
+            name: '홍길동'
+            , age: 42
+        });
+        function fun(name, math, eng) {
+            var n1 = {
+                이름: name,
+                수학: math,
+                영어: eng,
+                getSum: function () {
+                    return this.수학 + this.영어;
+                },
+                getavg: function () {
+                    return this.getSum() / 2
+                },
+                toString: function () {
+                    return this.getSum() + " " + this.getavg();
+                }
+            }
+            return n1;
+        };
+        var stu = [];
+        stu.push(fun('유강', 90, 100));
+        stu.push(fun('이오', 80, 140));
+
+        alert(stu[1].toString());
+    </script>
+
+</body>
+
+</html> -->
+<!-- <!DOCTYPE html>
+<html lang="kor">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA_Compatible" content="ie=edge">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <script>
+        // var stu = {
+        //     name: '수정',
+        //     grade: '1학년',
+        //     toString: function () {
+        //         return this.name + ":" + this.grade;
+        //     }
+        // };
+        // alert(stu);
+        var n = window.open("", "", "width = 300 , height = 200");
+        var x = screen.width;
+        var y = screen.height;
+
+        n.moveTo(0, 0);
+        n.resizeTo(x, y);
+
+        //        n.resizeBy(-10, -10); //윈도우크기 상대적 지정 
+        //      n.moveBy(20, 20);     //윈도우위치 상대적
+        setInterval(function () {
+            n.resizeBy(-10, -10)
+            n.moveBy(20, 20);
+        }, 1000);
+
 
     </script>
 
+
+</body>
+
+</html> -->
+<!-- <!DOCTYPE html>
+<html lang="kor">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA_Compatible" content="ie=edge">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <script>
+        $(document).ready(function () {
+            var n = { 이름: '오섭' };
+            $.extend(n, { 주소: '경기' })
+
+        });
+
+
+    </script>
+
+
+
+
+</body>
+
+</html> -->
+<!-- <!DOCTYPE html>
+<html lang="kor">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA_Compatible" content="ie=edge">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <script>
+        function on(e) {
+            var x = e.screenX;
+            var y = e.screenY;
+            var a = document.getElementById("a");
+            a.innerHTML = x + " " + y;
+        }
+        window.onload = function () {
+            var x = screen.width;
+            var y = screen.height;
+            if (x < 1200 && y < 1024){
+                alert("경고!")
+            }
+            else
+            alert("안경고!")
+        }
+
+
+    </script>
+
+
+    <img onmousemove="on(event)" src="naka.jpg">
+    <div id="a"></div>
+</body>
+
+</html> -->
+<!-- <!DOCTYPE html>
+<html lang="kor">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA_Compatible" content="ie=edge">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <script>
+        //문서 객체 내부 검사
+        //html()
+        //text() 둘다 같다 문서 객체 내부 글자와 관련된 기능 사용
+        /* */
+
+        // $(document).ready(function () {
+        //     $('div').html("hihi");
+        //     $('div').text("hi123shi");
+        // }
+
+        // )
+
+        $(function () {
+            $('div').first().remove();
+            $('div').empty();
+        })
+
+    </script>
+    <div>123</div>
+    <div>123412341312412</div>
+
+</body>
+
+</html> -->
+<!-- <!DOCTYPE html>
+<html lang="kor">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA_Compatible" content="ie=edge">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <script>
+        $(document).ready(function () {
+            //appendTo()에는 태그이름  append()에는 변수이름
+
+            // $('<h1></h1>').html('hi').appendTo('body');
+            // //$(매개변수) 매개변수에 html태그를 문자열로 넣기만 하면 문서 객체 생성..
+            // $('<img />', { src: 'naka.jpg' }).appendTo('body');
+            // $('<img>').attr('src', 'naka.jpg').appendTo('body');
+
+
+            var n = [{ name: 'kim', id: '123' },
+            { name: 'lee', id: '124' },
+            { name: 'park', id: '163' },
+            ];
+
+            //문서 객체 추가
+            $('div').append(function (index) {
+                var a = n[index];
+                var b = '';
+
+                b += a.id + " " + a.name;
+                return b;
+            });
+
+            $('img').css({ height: 200 })
+            setInterval(function () {
+            $('img').first().appendTo('body');
+
+            }, d000)
+        })
+        
+
+    </script>
+    <img src="naka.jpg">
+    <img src="naka1.jpg">
+    <div></div>
+    <div></div>
+    <div></div>
+</body>
+
+</html> -->
+<!-- <!DOCTYPE html>
+<html lang="kor">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA_Compatible" content="ie=edge">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <script>
+
+
+
+        $(document).ready(function () {
+            $('div').append($('h1').clone());
+            $('h1:even').css('background', 'blue')
+        });
+//문서 복제 $(selector).clone();
+
+    </script>
+    <h1>1</h1>
+    <p>2</p>
+    <div>3</div>
+
+</body>
+
+</html> -->
+<!-- <!DOCTYPE html>
+<html lang="kor">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA_Compatible" content="ie=edge">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <style>
+        .aa {
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <script>
+        /*이벤트 연결 메소드
+        1. $(selector).on(eventName,function(event){})
+        2. $(selector).on(object)
+        */
+        //html함수 이용 원 투 쓰리 나오게
+        // $(document).ready(function () {
+        //     $('h1').on('click', function (event) {
+        //         $(this).html(function (index, html) {
+        //             return html + '★';
+        //         })
+        //     })
+        // })
+        $(document).ready(function () {
+            $('h1').on({
+                mouseover: function () {
+                    $(this).addClass("aa");
+                },
+                mouseout: function () {
+                    $(this).removeClass("aa");
+                },
+
+            })
+            $('h1').on('click', function () {
+                $(this).html("클릭");
+                alert("이벤트 발생!");
+                $(this).off();
+            })
+            //이벤트 연결 제거
+            //2. $(selector).off();
+
+        })
+
+    </script>
+    <h1>one</h1>
+    <h1>two</h1>
+    <h1>three</h1>
+
+</body>
+
+</html> -->
+<!-- <!DOCTYPE html>
+<html lang="kor">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA_Compatible" content="ie=edge">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <style>
+        div {
+            border: 5px solid;
+            border-radius: 5px;
+            margin: auto;
+            padding: 10px;
+
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        //$(selector).off(eventname)
+        //$(selector).off(eventname,function(event){})
+        $(document).ready(function () {
+
+            $('div').on({
+                click: function () {
+                    //context객체 $()안에 선택자가 2개
+                    var a = $('h1', this).text();
+                    alert(a);
+                }
+            })
+        })
+    </script>
+
+    <div>
+        <h1>one</h1>
+        <p>일</p>
+    </div>
+    <div>
+        <h1>two</h1>
+        <p>이</p>
+    </div>
+    <div>
+        <h1>three</h1>
+        <p>삼</p>
+    </div>
+</body>
+
+</html> -->
+<!-- <!DOCTYPE html>
+<html lang="kor">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA_Compatible" content="ie=edge">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <script>
+        //이벤트 강제 발생
+        /*
+        trigger
+        
+        1. $(selector).trigger(eventName);
+        1. $(selector).trigger(eventName,data);
+        */
+        $(function () {
+
+            $('h1').click(function () {
+                $(this).html(function (index, n) {
+                    return n + "*";
+                })
+            })
+            setInterval(function () {
+                $('h1').last().trigger('click');
+            },2000)
+        })
+    </script>
+
+</body>
+<h1>자바</h1>
+<h1>맥</h1>
+<h1>인텔</h1>
+<h1>머ㅝ</h1>
+
+
+</html> -->
+<!-- <!DOCTYPE html>
+<html lang="kor">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA_Compatible" content="ie=edge">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body>
+
+
+    <script>
+        // $(document).ready(function () {
+        //     $('h1').click(function (event, n1, n2) {
+        //         alert(n1 + " : " + n2);
+        //     })
+        // $('h1').trigger('click',[3,4]);
+        // })
+
+        //preventDefault() 기본 이벤트 제거
+        //stopPropagation() 이벤트 전달 제거
+
+        $(document).ready(function () {
+            // $('a').click(function (e) {
+            //     $(this).css('backgroundColor', 'aliceblue')
+            //     e.stopPropagation();
+            //     e.preventDefault();
+            // });
+            $('#aa').on('click', 'h1', function () {
+                var n = $(this).html();
+                $('#aa').append(n);
+            })//#aa안의 h1에 대한 이벤트만 처리
+        })
+    </script>
+    <div id="aa">
+        <h1>head</h1>
+        <h2>head</h2>
+    </div>
+    <h1><a href="http://www.naver.com" target="_blank">네이버</a></h1>
+
+</body>
+
+</html> -->
+<!-- <!DOCTYPE html>
+<html lang="kor">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA_Compatible" content="ie=edge">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <script>
+        $(document).ready(function () {
+            $('textarea').keyup(function () {
+                var n = $(this).val().length;
+                var m = n;
+                $('h2').html(m);
+                if (m < 10) {
+                    $('h2').css('color', 'pink')
+                } else $('h2').css('color', 'blue');
+            })
+
+
+        })
+    </script>
+    <div>
+        <p>안녕하세요</p>
+        <h2>여러분</h2>
+        <textarea cols="50" rows="5"></textarea>
+    </div>
+</body>
+
+</html> -->
+<!DOCTYPE html>
+<html lang="kor">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA_Compatible" content="ie=edge">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#pro').submit(function(e){
+               var n = $('#na').val();
+               var p = $('#pa').val();
+               alert(n);
+               e.preventDefault();
+               e.stopPropagation();
+            })
+        })
+    </script>
+</head>
+
+<body>
+    <form id="pro">
+        <div><span>이름</span> : <input id="na" type="text"></div>
+        <div><span>비번</span> : <input id="pa" type="password"></div>
+        <input type="submit" value="제출">
+    </form>
 </body>
 
 </html>
@@ -1178,48 +1675,7 @@ for(var a in ary){
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <!-- 
-<!DOCTYPE html><html lang="kor"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta http-equiv="X-UA_Compatible" content="ie=edge"><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script></head><body></body></html>
-<!DOCTYPE html><html lang="kor"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta http-equiv="X-UA_Compatible" content="ie=edge"><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script></head><body></body></html>
-<!DOCTYPE html><html lang="kor"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta http-equiv="X-UA_Compatible" content="ie=edge"><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script></head><body></body></html>
-<!DOCTYPE html><html lang="kor"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta http-equiv="X-UA_Compatible" content="ie=edge"><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script></head><body></body></html>
-<!DOCTYPE html><html lang="kor"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta http-equiv="X-UA_Compatible" content="ie=edge"><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script></head><body></body></html>
-<!DOCTYPE html><html lang="kor"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta http-equiv="X-UA_Compatible" content="ie=edge"><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script></head><body></body></html>
-<!DOCTYPE html><html lang="kor"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta http-equiv="X-UA_Compatible" content="ie=edge"><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script></head><body></body></html>
-<!DOCTYPE html><html lang="kor"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta http-equiv="X-UA_Compatible" content="ie=edge"><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script></head><body></body></html>
-<!DOCTYPE html><html lang="kor"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta http-equiv="X-UA_Compatible" content="ie=edge"><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script></head><body></body></html>
-<!DOCTYPE html><html lang="kor"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta http-equiv="X-UA_Compatible" content="ie=edge"><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script></head><body></body></html>
-<!DOCTYPE html><html lang="kor"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta http-equiv="X-UA_Compatible" content="ie=edge"><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script></head><body></body></html>
-<!DOCTYPE html><html lang="kor"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta http-equiv="X-UA_Compatible" content="ie=edge"><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script></head><body></body></html>
 <!DOCTYPE html><html lang="kor"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta http-equiv="X-UA_Compatible" content="ie=edge"><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script></head><body></body></html>
 <!DOCTYPE html><html lang="kor"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta http-equiv="X-UA_Compatible" content="ie=edge"><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script></head><body></body></html>
 <!DOCTYPE html><html lang="kor"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta http-equiv="X-UA_Compatible" content="ie=edge"><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script></head><body></body></html>
