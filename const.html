@@ -4,20 +4,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA_Compatible" content="ie=edge">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <title>Document</title>
     <style>
         table {
             border: 3px dashed black;
         }
-    </style>
-    <script>
-        function cl(e) {
-            var al = prompt("URL주소 추가");
-            var na = prompt("주소 이름")
-            var pa = e.parentElement;
-            pa.removeChild;
-            pa.innerHTML ='<a href="'+al+'">'+na+'</a>';
+
+        td {
+            text-align: center;
         }
+
+        a {
+            text-decoration: none;
+            color: black;
+        }
+    </style>
+    <script src="time.js">
+
     </script>
 
 </head>
@@ -25,28 +30,34 @@
 <body>
 
     <h1>개인 연습장</h1>
+    <span id="time"></span>
     <hr>
-    <fieldset>
-        <legend>자주 가는 사이트</legend>
+    <div id="head">
         <table>
             <tr>
-                <td><a href="http://www.naver.com">네이버</a></td>
-                <td><a href="http://www.daum.net">다음</a></td>
-                <td><input type="button" value="추가" onclick="cl(this)"></td>
+                <td><a href="My.html">내 소개</a></td>
+                <td><a>아무개</a></td>
+                <td><a></a></td>
+                <td><a></a></td>
+            </tr>
+        </table>
+    </div><br>
+
+    <div>
+
+
+        <table>
+            <tr>
+                <th style="font-size: x-large;">자주 가는 사이트</th>
             </tr>
             <tr>
-                <td><input type="button" value="추가" onclick="cl(this)"></td>
-                <td><input type="button" value="추가" onclick="cl(this)"></td>
-                <td><input type="button" value="추가" onclick="cl(this)"></td>
-            </tr>
-
-
+                <td><a target="_blank" href="https://github.com/amuge92"><img src="깃.jpg"></td>
+            </tr></a>
+            <tr>
+                <td><a target="_blank" href="https://www.google.com"><img src="구글.png"></td>
+            </tr></a>
         </table>
-
-
-
-
-    </fieldset>
+    </div>
 
 
 
