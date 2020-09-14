@@ -1914,7 +1914,7 @@ for(var a in ary){
 </body>
 
 </html> -->
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="kor">
 
 <head>
@@ -1932,7 +1932,7 @@ for(var a in ary){
         //     return element;
         // })
         //조건 메소드 filter, every, some
-        //every는 ary가 mini에 포함 some은 교집합
+        //every는 ary가 mini에 some은 교집합
 
         // ary = ary.filter(function (element, index, ary) {
         //     return element <= 3;
@@ -1954,6 +1954,56 @@ for(var a in ary){
         var d = ary.some(maxi);
         alert(a2)
 
+    </script>
+</body>
+
+</html> -->
+<!-- <html lang="ko">
+<head>
+    <style>
+        span {
+            animation: anime 1s none infinite
+        }
+        @keyframes anime {
+            0% {color: red;}
+            20% {color: orange;}
+            40% {color: yellow;}
+            60% {color: green;}
+            80% {color: blue;}
+            100% {color: purple;}
+        }
+    </style>
+</head>
+<body>
+    <p><span>span</span>5초마다 색깔이 변하면서 무한반복한다.</p>
+</body>
+</html> -->
+<!DOCTYPE html>
+<html lang="kor">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA_Compatible" content="ie=edge">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body>
+
+    <button id="a">A버튼</button>
+    <button id="b">B버튼</button>
+    <h2>A: <span id="c">0</span></h2>
+    <h2>B: <span id="d">0</span></h2>
+    <script>
+        window.onload = function () {
+            var a = document.getElementById("a");
+            var b = document.getElementById("b");
+            var c = document.getElementById("c");
+            var d = document.getElementById("d");
+            a.onclick = function () {
+                c.innerHTML = Number(c.innerHTML) + 1;
+            }
+        }
     </script>
 </body>
 
@@ -1980,10 +2030,7 @@ for(var a in ary){
 
 
 
-
 <!-- 
-<!DOCTYPE html><html lang="kor"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta http-equiv="X-UA_Compatible" content="ie=edge"><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script></head><body></body></html>
-<!DOCTYPE html><html lang="kor"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta http-equiv="X-UA_Compatible" content="ie=edge"><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script></head><body></body></html>
 <!DOCTYPE html><html lang="kor"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta http-equiv="X-UA_Compatible" content="ie=edge"><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script></head><body></body></html>
 <!DOCTYPE html><html lang="kor"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta http-equiv="X-UA_Compatible" content="ie=edge"><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script></head><body></body></html>
 <!DOCTYPE html><html lang="kor"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta http-equiv="X-UA_Compatible" content="ie=edge"><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script></head><body></body></html>
