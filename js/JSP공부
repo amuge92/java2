@@ -561,12 +561,157 @@ out.print(name + " " + hak + " "+ rad + " " + major);
 
 
 ///////////////////
+requestDispatcher
+:forward() 메서드
+
+a.jsp로 요청했을 떄 
+a.jsp에서 forward실행해서
+b.jsp로 제어넘김
+b.jsp로 결과를 브라우저에 넘김
+
+
+1. forward태그로 이동
+2. response -> sendRedirect()
+3.requestDispatcher
+->forward()메서드
 
 
 
 
 
+///////////
+<%
+		request.setCharacterEncoding("euc-kr");
+	String guk = request.getParameter("guk");
+	String hae = request.getParameter("hae");
+	out.print("국내 여행  : " + guk + "<br> ");
+	out.print("해외 여행  : " + hae + "<br> ");
+	%>
+	<a href='pre.jsp'>다시 신청</a>
+	----------------
+	<form method="post" action="pre2.jsp">
+		<select name="guk">
+			<option value="울산">울산</option>
+			<option value="부산">부산</option>
+		</select> <select name="hae">
+			<option value="홍콩">홍콩</option>
+			<option value="태국">태국</option>
+		</select> <input type="submit" value="신청">
+	</form>
 
 
 
 
+
+///////////////////////////////
+<form method="post" name="aa"action="pre2.jsp" onsubmit="return on()">
+	수 : <input name="num"><input type="submit" value="입력완료">
+	</form>
+<script>
+function on(){
+	if(aa.num.value==""){
+		alert("데이터 입력");
+		return false;
+	}
+	else if(isNaN(aa.num.value)){
+		alert("문자열은 안된다");
+		aa.num.value ="";
+		return false;
+	}else
+	return true
+}
+</script>
+-----
+<%
+int a = Integer.parseInt(request.getParameter("num"));
+for(int i =1 ; i <=a ;i++){
+	out.print(i+"<br>");
+}
+%>
+//////////////
+
+
+
+
+/////////////////
+<form method="post" name="aa"action="pre2.jsp">
+	이름 : <input name="name"><br>
+	국 : <input name="guk"><br>
+	영 : <input name="yeong"><br>
+	수 : <input name="su"><br>
+	<input type="submit" value="성적처리">
+	
+	
+	</form>
+------------------
+<%
+		request.setCharacterEncoding("euc-kr");
+	String name = request.getParameter("name");
+	int guk = Integer.parseInt(request.getParameter("guk"));
+	int yeong = Integer.parseInt(request.getParameter("yeong"));
+	int su = Integer.parseInt(request.getParameter("su"));
+	int avg = (guk + yeong + su) / 3;
+	String grade;
+	if (avg >= 90) {
+		grade = "A";
+	} else if (avg >= 80) {
+		grade = "B";
+	} else if (avg >= 70) {
+		grade = "C";
+	} else
+		grade = "F";
+	%>
+	<ul>
+		<li>이름 : <%=name%></li>
+		<li>국어 : <%=guk%></li>
+		<li>영어 : <%=yeong%></li>
+		<li>수학 : <%=su%></li>
+		<li>총점 : <%=guk + yeong + su%></li>
+		<li>평균 : <%=avg%></li>
+		<li>등급 : <%=grade%></li>
+	</ul>
+	/////////////////////
+
+<form method="post" action="pre2.jsp">
+	너 몇 살이니 <input name="age">
+	<input type="submit" value="로그인">
+	
+	</form>
+	--------------------
+<%
+		int age = Integer.parseInt(request.getParameter("age"));
+	if (age < 15) {
+	%>
+	<script type="text/javascript">
+		alert("15세 미만은 입장 불가능")
+		history.go(-1);
+	</script>
+	<%
+		}else{
+			request.setAttribute("name", "슬기");
+			RequestDispatcher re = request.getRequestDispatcher("na.jsp");
+			
+			re.
+			re.forward(request, response);
+		}
+	%>
+	------
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
+<%
+
+String age = request.getParameter("age");
+String name = (String)request.getAttribute("name");
+
+
+%>
+<!DOCTYPE html>
+<html>
+<body bgcolor ='pink'>
+//나이 이름 출력(표현식)
+<%=age %>
+<%=name %>
+
+
+</body>
+</html>

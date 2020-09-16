@@ -1989,7 +1989,6 @@ for(var a in ary){
 </head>
 
 <body>
-
     <button id="a">A버튼</button>
     <button id="b">B버튼</button>
     <h2>A: <span id="c">0</span></h2>
@@ -2004,14 +2003,30 @@ for(var a in ary){
                 c.innerHTML = Number(c.innerHTML) + 1;
             }
         }
-        <script>
-        var d = 0 ;
-        <%String str%> = d;
-    </script>
+        
     </script>
 </body>
 
 </html>
+
+
+<form method="post" name="aa"action="pre2.jsp" onsubmit="return on()">
+	수 : <input name="num"><input type="submit" value="입력완료">
+	</form>
+<script>
+function on()
+	if(aa.num.value==""){
+		alert("데이터 입력");
+		return false;
+	}
+	else if(isNaN(aa.num.value)){
+		alert("문자열은 안된다");
+		aa.num.value ="";
+		return false;
+	}else
+	return true
+}
+</script>
 
 
 
