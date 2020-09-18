@@ -715,3 +715,697 @@ String name = (String)request.getAttribute("name");
 
 </body>
 </html>
+
+
+//////////////////
+
+
+<form action="SessionExe.jsp" method="post">
+이름 : <input name="name">
+<input type="submit" value="보내기">
+
+</form>
+-----
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
+<%
+request.setCharacterEncoding("euc-kr");
+String name = "제이에스피";
+%>
+
+<!DOCTYPE html>
+<html>
+<body>
+<jsp:include page="out.jsp"/>
+포함시켰따.
+
+</body>
+</html>
+-----
+<body>
+<%
+String name=request.getParameter("name");
+%>
+<%=name %>
+
+</body>
+////////////////////////
+
+
+<top.jsp>
+
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+
+    pageEncoding="EUC-KR"%>
+
+<!DOCTYPE html>
+
+<html>
+
+<body>
+
+ <table width="500">
+
+ <tr height="100">
+
+ <td colspan="2" align="center"
+
+ width="260">
+
+ 
+
+ <img src="C:/Users/soldesk/Desktop/라면.jpg"
+
+ width="200" height="70">
+
+ </td>
+
+ 
+
+ <td colspan="4" align="center">
+
+ <font size="10">일본라면</font>
+
+ </td>
+
+ </tr>
+
+ 
+
+ <tr height="50">
+
+  <td width="130" align="center">
+
+  소유라멘</td>
+
+  
+
+ <tr height="50">
+
+  <td width="130" align="center">
+
+  돈코츠라멘</td>
+
+  
+
+ <tr height="50">
+
+  <td width="130" align="center">
+
+  미소라멘</td>
+
+ </tr>
+
+ </table>
+
+</body>
+
+</html>
+
+------------------------------------------------------------------
+
+<bot.jsp>
+
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+
+    pageEncoding="EUC-KR"%>
+
+<!DOCTYPE html>
+
+<html>
+
+<body>
+
+ <table width="600">
+
+ <tr height="100">
+
+ <td align="center">
+
+ 이용약관
+
+ 사업자번호
+
+ 대표이사
+
+ 대표전화:1544-0714
+
+ </td>
+
+ </tr>
+
+ </table>
+
+</body>
+
+</html>
+
+----------------------------------------------------------------------------
+
+<left.jsp>
+
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+
+    pageEncoding="EUC-KR"%>
+
+<!DOCTYPE html>
+
+<html>
+
+<body>
+
+ <table width="200">
+
+ <tr height="100">
+
+ <td width="200" align="center">
+
+ <a href="#">소유라멘</a>
+
+ </td>
+
+ </tr>
+
+ 
+
+ <tr height="100">
+
+ <td width="200" align="center">
+
+ <a href="#">미소라멘</a>
+
+ </td>
+
+ </tr>
+
+ 
+
+ <tr height="100">
+
+ <td width="200" align="center">
+
+ <a href="#">돈코츠라멘</a>
+
+ </td>
+
+ </tr>
+
+ 
+
+ 
+
+ 
+
+ 
+
+ </table>
+
+</body>
+
+</html>
+
+----------------------------------------------------------------
+
+<center.jsp>
+
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+
+    pageEncoding="EUC-KR"%>
+
+<!DOCTYPE html>
+
+<html>
+
+<body>
+
+<table width="600">
+
+<tr height="400">
+
+ <td align="center">
+
+ <img src="C:/Users/soldesk/Desktop/후라이드.jpg"
+
+ width="500" height="300">
+
+ </td>
+
+ </tr>
+
+</table>
+
+</body>
+
+</html>
+
+------------------------------------------------------------------
+
+<main.jsp>
+
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+
+    pageEncoding="EUC-KR"%>
+
+<!DOCTYPE html>
+
+<html>
+
+<body>
+
+<center>
+
+<table border="1" width="800">
+
+<!-- top -->
+
+<tr heigth="150">
+
+ <td align="center" colspan="2">
+
+ <jsp:include page="top.jsp"/>
+
+ </td>
+
+</tr>
+
+<!-- left -->
+
+<tr heigth="300">
+
+ <td align="center" width="200">
+
+ <jsp:include page="left.jsp"/>
+
+ </td>
+
+<!-- center -->
+
+<td align="center" width="600">
+
+ <jsp:include page="center.jsp"/>
+
+ </td>
+
+</tr>
+
+​
+
+<!-- bottom -->
+
+<tr heigth="100">
+
+ <td align="center" colspan="2">
+
+ <jsp:include page="bot.jsp"/>
+
+ </td>
+
+</tr>
+//////////////////////////
+
+
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+	pageEncoding="EUC-KR"%>
+<!DOCTYPE html>
+<html>
+<body>
+	<form name="aa" method="post" action="fru.jsp">
+		아이디 : <input name="id"><br> 비밀번호 : <input type="password"
+			name="pw"><br> <input value="제출" type="submit">
+	</form>
+</body>
+</html>
+--------------<%@page import="java.net.URLEncoder"%>
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
+<!DOCTYPE html>
+<html>
+<body>
+<%request.setCharacterEncoding("euc-kr");
+String name = "두희";
+String id="java";
+String pw = "1234";
+
+if(id.equals(request.getParameter("id"))&&pw.equals(request.getParameter("pw"))){
+	response.sendRedirect("suc.jsp?name="+URLEncoder.encode(name,"UTF-8"));
+}else{
+	response.sendRedirect("log.jsp");
+	
+}
+
+%>
+
+
+</body>
+</html>
+---------------
+
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
+<!DOCTYPE html>
+<html>
+
+<body>
+<%
+request.setCharacterEncoding("euc-kr");
+String str = request.getParameter("name");
+
+%>
+<%=str %>환영환영
+
+</body>
+</html>
+/////////////////////////
+//////////////////////
+
+
+<form method="post" action="f2.jsp">
+사는 지역은?
+<input type="radio" name="adr" value="용산구">용산구<br>
+<input type="radio" name="adr" value="강남구">강남구<br>
+<input type="radio" name="adr" value="서초구">서초구<br>
+<input type="submit" value="제출">
+
+</form>----------
+---------------
+<body>
+<% 
+request.setCharacterEncoding("EUC-KR");
+String str = request.getParameter("adr");
+String name="나넌";
+%>
+
+<jsp:forward page="f3.jsp">
+<jsp:param name="name" value="<%=name%>"/>
+</jsp:forward>
+
+
+</body>
+===========
+<%
+
+request.setCharacterEncoding("EUC-KR");
+String name = request.getParameter("name");
+String str = request.getParameter("adr");
+%>
+<%=name %>은 <%=str %>에 산다.
+
+///////////////////////////
+
+
+자바빈즈 (자료를 전송할때 하나의 객체로 여러 정보를 담고있다.)
+모든 변수는 private
+메소드는 setName(String a){}
+         getName(){}형식이다.
+
+저장 JSP ->톰캣 ->DB
+불러오기 (로그인)DB  ->톰캣 ->비교하여 로그인 성공/실패
+
+
+////////////////////////////////
+
+
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+	pageEncoding="EUC-KR"%>
+<!DOCTYPE html>
+<html>
+<body>
+	<form action="f2.jsp">
+		<center>
+			<h2>회원가입</h2>
+			<form action="f2.jsp" method="post">
+				<table width="500" border="1">
+					<tr height="50">
+						<td width="150" align="center">아이디</td>
+						<td width="350" align="center"><input size="30" name="id" placeholder="아이디 넣어라"></td>
+					</tr>
+					<tr height="50">
+						<td width="150" align="center">비밀번호</td>
+						<td width="350" align="center"><input type="password" placeholder="비번은 영문자만" size="30" name="pw"></td>
+					</tr>
+					<tr height="50">
+						<td width="150" align="center">이메일</td>
+						<td width="350" align="center"><input type="email" size="30" name="email"></td>
+					</tr>
+					<tr height="50">
+						<td width="150" align="center">전화번호</td>
+						<td width="350" align="center"><input type="tel" size="30" name="tel"></td>
+					</tr>
+					<tr height="50">
+					<td align="center" colspan="2"><input type="submit" value="회원가입"></td>
+					</tr>
+				</table>
+			</form>
+		</center>
+	</form>
+</body>
+</html>
+-----------------------
+<%@page import="org.apache.catalina.connector.Request"%>
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
+<!DOCTYPE html>
+<html>
+<body>
+	<%request.setCharacterEncoding("euc-kr");
+	%>
+<h2>정보 출력</h2>
+<!--  request로 넘어온 데이터를 자바 빈이랑 맵핑시켜주는 것이 useBean -->
+<!-- 객체 생성 -->
+<jsp:useBean id="be" class="bean.Member">
+
+<!-- JSP내용을 자바빈 클래스에 데이터를 넣는다. -->
+<jsp:setProperty property="*" name="be"/>
+</jsp:useBean>
+<h3>너의 아이디는 <jsp:getProperty property="id" name="be"/></h3>
+<h3>너의 비번은 <jsp:getProperty property="pw" name="be"/></h3>
+<h3>너의 이멜은 <jsp:getProperty property="email" name="be"/></h3>
+<h3>너의 전번은 <%=be.getTel() %></h3>
+
+</body>
+</html>
+--------------
+//////////////////
+
+<form action="f2.jsp">
+	<center>
+	영화 뭐 볼래?
+	<select name="mu">
+	<option value="0">날씨의 아이</option>
+	<option value="1">시간을 달리는 소녀</option>
+	<option value="2">썸머워즈</option>
+	</select>
+	<input type="submit" value="예약">	
+	
+	
+	</center>
+	</form>
+	----------------
+	<center>
+		<%
+			String[] str1 = { "2020", "2005", "2010" };
+		String[] str2 = { "날씨의 아이", "시간을 달리는 소녀", "썸머워즈" };
+
+		int str = Integer.parseInt(request.getParameter("mu"));
+		%>
+		<h1>영화 정보 조회</h1>
+		년도 :
+		<%=str1[str]%><br> 영화명 :
+		<%=str2[str]%><br> <a href="f1.jsp">다시조회</a>
+
+	</center>
+
+//////////////
+
+
+JSP에서 JQUERY 사용하기 
+
+<script src=". ./js/jquery-버전.js"></script>
+
+
+
+
+
+
+////////////////////////////////////////////
+<form action="f2.jsp" method="post">
+		<center>
+<fieldset>
+<legend>여행하고 싶은곳</legend>
+
+<label><input name="tr" value="디즈니 랜드" type="checkbox"> 디즈니 랜드 </label><br>
+<label><input name="tr" value="스카이트리" type="checkbox"> 스카이트리 </label><br>
+<label><input name="tr" value="애버랜드" type="checkbox"> 애버랜드 </label><br>
+
+<label><input name="tr" value="부곡하와이" type="checkbox"> 부곡하와이 </label><br>
+<input type="submit" value="제출">
+</fieldset>
+
+		</center>
+	</form>
+
+	----------------------------------
+	<ul>
+
+<%for(int i = 0; i<str.length;i++){ %>
+<li>
+<%=str[i] %>
+</li>
+<%} %>
+
+</ul>
+
+///////////////////////////////////////
+/
+////////////////////////////////////////
+///////////////////////////////////////
+//////////////////////////////////////
+1. 선언문의 변수는 전역변수이고 스크립트릿의 변수는 지역변수이다.
+2. <%
+int i = 1;
+int sum=0;
+while(i<=10){
+sum+=i;
+i++
+}
+out.print(sum);%>
+
+3.
+<form action="if.jsp" method="post">
+이름 : <input name="name"><br>
+좋아하는 색 : <select name='color'>
+<option value="red">빨강</option>
+<option value="orange">주황</option>
+<option value="yellow">노랑</option>
+<option value="green">초록</option>
+<option value="blue">파랑</option>
+<option value="purple">보라</option>
+</select><br>
+<input type="submit">
+
+
+</form>
+-----------------------------------------
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+pageEncoding="EUC-KR"%>
+<% String name = request.getParameter("name");
+String color = request.getParameter("color");%>
+<!DOCTYPE html>
+<html>
+<body bgcolor="<%=color %>">
+<%=name %>은 <%=color %>색을 좋아하네요
+
+</body>
+</html>
+
+4.include는 다른 페이지를 불러와 현재페이지에 부착하는거고
+forward는 다른 페이지로 이동하는 태그입니다.
+
+5.
+<form>
+<%request.setCharacterEncoding("euc-kr"); %>
+
+<jsp:forward page="forward2.jsp">
+<jsp:param value="수영" name="hobby"/>
+<jsp:param value="홍길동" name="name"/>
+</jsp:forward>
+</form>
+-----------------
+<body>
+<%
+request.setCharacterEncoding("euc-kr");
+String name=URLDecoder.decode
+(request.getParameter("name"));
+String hobby = URLDecoder.decode
+(request.getParameter("hobby"));
+
+%>
+<%=name %>님의 취미는 <%=hobby %>입니다.
+</body>
+
+6.
+<form action="favorite.jsp" method="post">
+좋아하는 색: <input name="color"><br>
+좋아하는 음악 : <input name="music"><br>
+<input type="submit" value="제출">
+
+
+</form>
+--------
+<body>
+<jsp:useBean id="ne" class="bean.favoBean">
+<jsp:setProperty property="*" name="ne"/>
+</jsp:useBean>
+<jsp:getProperty property="music" name="ne"/>
+<jsp:getProperty property="color" name="ne"/>
+
+</body>
+--------
+package bean;
+
+public class favoBean {
+private String music;
+private String color;
+public String getMusic() {
+return music;
+}
+public void setMusic(String music) {
+this.music = music;
+}
+public String getColor() {
+return color;
+}
+public void setColor(String color) {
+this.color = color;
+}
+}
+-------------------
+7.
+
+2020.09.18. 15:24 답글쓰기
+프로필 사진
+이오
+<form action="movie2.jsp" method="post">
+영화 제목 : <input name="title"><br> 가격 : <input name="price"><br>
+감독 : <input name="director"><br> 시놉시스 :
+<textarea name="synopsis" rows="1" cols="20"></textarea>
+<br> 장르 : <select name="genre">
+<option value="공포">공포</option>
+<option value="호러">호러</option>
+<option value="고어">고어</option>
+<option value="미스테리">미스테리</option>
+
+</select> <br> <input type="submit" value="제출">
+</form>
+------
+<jsp:useBean id="mu1" class="bean.MovieBean">
+<jsp:setProperty property="*" name="mu1" />
+</jsp:useBean>
+<center>
+<table>
+<tr>
+<td>영화제목</td>
+<td><jsp:getProperty property="title" name="mu1" /></td>
+</tr>
+<tr>
+<td>가격</td>
+<td><jsp:getProperty property="price" name="mu1" /></td>
+</tr>
+<tr>
+<td>감독</td>
+<td><jsp:getProperty property="director" name="mu1" /></td>
+</tr>
+<tr>
+<td>시놉시스</td>
+<td><jsp:getProperty property="synopsis" name="mu1" /></td>
+</tr>
+<tr>
+<td>장르</td>
+<td><jsp:getProperty property="genre" name="mu1" /></td>
+</tr>
+
+
+</table>
+
+</center>
+/////////////////////////
