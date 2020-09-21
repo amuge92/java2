@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <style>
+        div {
+            padding: 5px;
+        }
+
+        body,
+        html {
+            position: relative;
+            margin: 0px;
+            padding: 0px;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div id="head">
+        <h1>설문지</h1>
+        <h4>사고 싶은 핸드폰 종류</h4>
+    </div>
+    <hr>
+    <form>
+        <div>
+            갖고있는 폰 종류
+            <input type="radio" name="phone" value="아이폰">아이폰
+            <input type="radio" name="phone" value="삼성">삼성
+            <input type="radio" name="phone" value="LG">LG
+            <input type="radio" name="phone" value="그외">그 외</div>
+        <div>
+            성별 <input type="radio" name="gender" value="남">남
+            <input type="radio" name="gender" value="여">여
+        </div>
+        <div>구매 시기
+            <select id="sel">
+                <option value="2017~2020">2017~2020</option>
+                <option value="~2013~2016">~2013~2016</option>
+            </select>
+        </div>
+        <div>
+            통신사
+            <input type="checkbox" name="check" value="SKT">SKT
+            <input type="checkbox" name="check" value="KT">KT
+            <input type="checkbox" name="check" value="LG">LG
+            <input type="checkbox" name="check" value="그 외">그 외
+        </div>
+        <div>남기고 싶은 말 <textarea rows="3" cols="20"></textarea> </div>
+        <div>
+            <input type="button" value="클릭" onclick="ch()">
+            <input type="button" value="색변경" onclick="color()">
+
+        </div>
+
+    </form>
+    <script>
+        function ch() {
+            var phone = document.getElementsByName("phone");
+            var gender = document.getElementsByName("gender");
+            var sel = document.getElementById("sel");
+            var check = document.getElementsByName("check");
+            var a = "";
+            for (var i = 0; i < phone.length; i++) {
+                if (phone[i].checked == true) {
+                    a += phone[i].value+" ";
+                }
+            }
+            for (var i = 0; i < gender.length; i++) {
+                if (gender[i].checked == true) {
+                    a += gender[i].value+" ";
+                }
+            }
+            for (var i = 0; i < sel.length; i++) {
+                if (sel[i].selected == true) {
+                    a += sel[i].value+" ";
+                }
+            }
+            for (var i = 0; i < check.length; i++) {
+                if (check[i].checked == true) {
+                    a += check[i].value+" ";
+                }
+            }
+
+            alert(a);
+        }
+        function color() {
+            document.body.style.backgroundColor = "lightblue";
+            document.getElementById("head").style.backgroundColor = "yellow";
+        }
+    </script>
+</body>
+
+</html>
