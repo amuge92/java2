@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+</head>
+
+<body>
+    식과 값을 입력 <input id="cal" type="text">
+    <input type="button" value="계산" onclick="calcu()">
+
+    <h2>자바스크립트란? <input type="button" value="버튼" onclick="co()"> <input onclick="tag()" type="button" value="태그몇개?"> </h2>
+    <hr>
+    <div>자바스크립트는 웹 프로그래밍 언어로서 웹 페이지를 동적 변경 시킬 수 있다.
+    </div>
+    <div><span id="span">프로그래밍 언어</span>를 아는 사용자는 쉽다.
+        <div> GUI프로그래밍에 필요한 요소들이 있어 어려움이 있다.
+        </div>
+
+        <script>
+            function calcu() {
+                var c = document.getElementById("cal");
+                var r = eval(c.value);
+                document.body.innerHTML += r;
+            }
+            function co() {
+                document.getElementById("span").style.border = "1px dotted violet";
+
+            }
+            function tag(){
+                alert(document.getElementsByTagName("*").length+"개");
+            }
+        </script>
+
+</body>
+
+</html>
