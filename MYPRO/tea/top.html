@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<body>
+
+    <head>
+        <style>
+             #search {
+            padding-right: 35px;
+        }
+
+            html {
+                overflow: hidden;
+            }
+
+            .R {
+                float: right;
+            }
+
+            li {
+                display: inline-block;
+                text-decoration: none;
+                font-size: 1.5em;
+                margin-right: 10px;
+                margin-left: 10px;
+            }
+
+            a {
+                text-decoration: none;
+                color: black;
+            }
+        </style>
+    </head>
+    <!-- 상단 로고 고정 -->
+
+    <!-- 메뉴 바 -->
+    <nav>
+        <ul>
+            <li><a href="#"><img src="GAMES.png" width="80px"></a></li>
+            <li><a href="#">Mobile</a></li>
+            <li><a href="#">PC</a></li>
+            <li><a href="#">Video</a></li>
+            <li><a href="#">Event</a></li>
+            <li><a href="#">WagleWagle</a></li>
+           
+            <li class="R"><span  id="search" onclick="si()">Signup</span></li>
+            <li class="R"><span onclick="parent.location.href='login.html'">Login</span></li>
+            <li class="R"><a href="#"><img src="search.png" width="30px"></a></li>
+        </ul>
+        <hr>
+    </nav>
+    <script>
+        function si() {
+            parent.location.href = 'joinpre.html'
+        }
+
+    </script>
+</body>
+
+</html>
