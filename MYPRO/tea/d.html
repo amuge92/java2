@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>게임즈 코리아 | 회원가입</title>
+    <!-- Bootstrap CDN -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+    <style>
+        * {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<script>
+
+</script>
+
+<body>
+
+    <p style="margin: auto; width: 40%; margin-top: 5%;">
+        <form:form action="${root }user/join_com" modelAttribute="TempUserBean" method="get">
+            <center>
+                <h1>GAMES KOERA 회원가입</h1>
+                <div>...........</div>
+                <br>
+                <div style="margin: auto; width: 40%; margin-top: 5%;">
+                    <hr style="border: 3px solid black;">
+                    <table style="width: 100%;">
+                        <tr style="width: 800px;">
+                            <td width="30%" style="font-size: large;">아이디<small style="color: red">*</small></td>
+                            <td width="70%"><input type="email"
+                                    style="padding-left: 20px; background-color: #f8f8f8; outline: none;border: none; height: 48px; width: 100%;"
+                                    path="user_id" placeholder="이메일 주소를 입력해주세요" /></td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <hr>
+                            </td>
+                        </tr>
+                        <tr style="width: 800px;">
+                            <td width="30%" style="font-size: large;">비밀번호<small style="color: red">*</small></td>
+                            <td width="70%"><input type="password"
+                                    style="padding-left: 20px; background-color: #f8f8f8; outline: none;border: none; height: 48px; width: 100%;"
+                                    path="user_pw" placeholder="비밀번호를 입력 해주세요" /></td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <hr>
+                            </td>
+                        </tr>
+
+                        <tr style="width: 800px;">
+                            <td width="30%" style="font-size: large;">비밀번호 확인<small style="color: red">*</small></td>
+                            <td width="70%"><input type="password"
+                                    style="padding-left: 20px; background-color: #f8f8f8; outline: none;border: none; height: 48px; width: 100%;"
+                                    path="user_pw2" placeholder="비밀번호를 확인 해주세요" /></td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <hr>
+                            </td>
+                        </tr>
+
+                        <tr style="width: 800px;">
+                            <td width="30%" style="font-size: large;">이름<small style="color: red">*</small></td>
+                            <td width="70%"><input type="text"
+                                    style="padding-left: 20px; background-color: #f8f8f8; outline: none;border: none; height: 48px; width: 100%;"
+                                    path="user_name" placeholder="이름을 입력해주세요" /></td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <hr>
+                            </td>
+                        </tr>
+                        <tr style="width: 800px;">
+                            <td width="30%" style="font-size: large;">연락처<small style="color: red">*</small></td>
+                            <td width="70%"><input type="tel"
+                                    style="padding-left: 20px; background-color: #f8f8f8; outline: none;border: none; height: 48px; width: 100%;"
+                                    path="user_phone" placeholder="연락처를 입력해주세요" /></td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <hr>
+                            </td>
+                        </tr>
+                        <tr style="width: 800px;">
+                            <td width="30%" style="font-size: large;">생년월일<small style="color: red">*</small></td>
+                            <td width="70%"><input type="text"
+                                    style="padding-left: 20px; background-color: #f8f8f8; outline: none;border: none; height: 48px; width: 100%;"
+                                    path="user_birth" placeholder="ex)901225" /></td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <hr>
+                            </td>
+                        </tr>
+
+                        <tr style="width: 800px;">
+                            <td width="30%" style="font-size: large;">주소<small style="color: red">*</small></td>
+                            <td width="70%"><input type="text"
+                                    style="padding-left: 20px; background-color: #f8f8f8; outline: none;border: none; height: 48px; width: 100%;"
+                                    path="user_add" placeholder="주소를 입력 해주세요" /></td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <hr>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <form:button type="button" class="btn btn-primary"
+                                style="font-weight: bolder; width: 100%;height: 50px; margin-top: 10px; background-color: #ea8094; line-height: 40px; color: white; border: #ea8094;">
+                                가입하기</form:button>
+                            </td>
+                        </tr>
+
+
+
+                    </table>
+                </div>
+            </center>
+        </form:form>
+    </p>
+
+</body>
+
+</html>
