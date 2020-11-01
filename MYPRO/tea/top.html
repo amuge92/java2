@@ -4,14 +4,20 @@
 <body>
 
     <head>
-        <style>
-             #search {
-            padding-right: 35px;
-        }
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
 
-            html {
-                overflow: hidden;
+
+        <style>
+            #search {
+                padding-right: 35px;
             }
+
+            html {}
 
             .R {
                 float: right;
@@ -34,7 +40,7 @@
     <!-- 상단 로고 고정 -->
 
     <!-- 메뉴 바 -->
-    <nav>
+    <nav id="navbar">
         <ul>
             <li><a href="#"><img src="GAMES.png" width="80px"></a></li>
             <li><a href="#">Mobile</a></li>
@@ -42,14 +48,51 @@
             <li><a href="#">Video</a></li>
             <li><a href="#">Event</a></li>
             <li><a href="#">WagleWagle</a></li>
-           
-            <li class="R"><span  id="search" onclick="si()">Signup</span></li>
+
+            <li class="R"><span id="search" onclick="si()">Signup</span></li>
             <li class="R"><span onclick="parent.location.href='login.html'">Login</span></li>
             <li class="R"><a href="#"><img src="search.png" width="30px"></a></li>
         </ul>
         <hr>
     </nav>
+    <nav id="navbar2" style="display: none;">
+        <ul>
+            <li></li>
+            <li><button style="border: none; background-color: white; outline: none;" type="button" data-toggle="dropdown" data-target="#div"><img style="cursor: pointer;"
+                        onmouseover="to()" src="GAMES.png" width="80px"></button> </li>
+            <li id="div">머랭치기</li>
+        </ul>
+        <hr>
+    </nav>
+
     <script>
+
+
+        window.onload = function () {
+            var n = document.getElementById("navbar");
+            var n2 = document.getElementById("navbar2");
+            if (window.innerWidth <= 950) {
+                n2.style.display = "block"
+                n.style.display = "none";
+            } else {
+                n2.style.display = "none"
+                n.style.display = "block";
+            }
+            window.onresize = function () {
+
+                if (window.innerWidth <= 950) {
+                    n2.style.display = "block"
+                    n.style.display = "none";
+                } else {
+                    n2.style.display = "none"
+                    n.style.display = "block";
+                }
+
+            }
+        }
+
+
+
         function si() {
             parent.location.href = 'joinpre.html'
         }
