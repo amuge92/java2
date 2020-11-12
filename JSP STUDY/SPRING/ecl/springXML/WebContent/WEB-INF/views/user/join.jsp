@@ -17,9 +17,7 @@
 </head>
 <script>
 	function checkUserIdExist(){
-		
 		var user_id = $("#user_id").val()
-		
 		if(user_id.length == 0){
 			alert('아이디를 입력해주세요')
 			return
