@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+       .notice{
+            border-top: 4px solid black;
+            border-bottom: 4px solid black;
+        }
+        table{
+            border-spacing: 15px;
+            border-collapse: collapse;
+        }
+        table tr{border-bottom: 1px solid darkgray;}
+        th{text-align: left;}
+        td{padding: 20px;}
+        button{
+            background: #e8728a;
+	color: #fff;
+	border: none;
+	height: 20px;
+	padding: 0 2em;
+	cursor: pointer;
+	transition: 800ms ease all;
+    outline: none;
+    margin-left: 30%;
+    margin-top: 20px;
+        }
+
+        #write_button:hover {
+	background: #fff;
+	color: #e8728a;
+}
+
+#write_button:before, button:after {
+	content: '';
+	position: absolute;
+	top: 0;
+	right: 0;
+	height: 2px;
+	width: 0;
+	background: #e8728a;
+	transition: 400ms ease all;
+}
+
+#write_button:after {
+	right: inherit;
+	top: inherit;
+	left: 0;
+	bottom: 0;
+}
+
+#write_button:hover:before, #write_button:hover:after {
+	width: 100%;
+	transition: 800ms ease all;
+}
+    </style>
+</head>
+<body>
+  <!-- 게시글 리스트 -->
+  <h1>WagleWagle</h1>
+
+			<table class="notice" id='notice' border="0">
+				<thead>
+					<tr>
+                        <th>제목</th>
+                        <th>작성자</th>
+                        <th>작성일</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>자유게시판1</td>
+                        <td>홍길동</td>
+                        <td>2020-10-04</td>
+                    </tr>
+                    <tr>
+						<td>자유게시판1</td>
+                        <td>홍길동</td>
+                        <td>2020-10-04</td>
+                    </tr>
+                    <tr>
+						<td>자유게시판1</td>
+                        <td>홍길동</td>
+                        <td>2020-10-04</td>
+                    </tr>
+                    <tr>
+						<td>자유게시판1</td>
+                        <td>홍길동</td>
+                        <td>2020-10-04</td>
+                    </tr>
+                    <tr>
+						<td>자유게시판1</td>
+                        <td>홍길동</td>
+                        <td>2020-10-04</td>
+                    </tr>
+                   
+                </tbody>
+            </table>
+
+            <button id="write_button">글쓰기</button>
+ 
+</body>
+</html>

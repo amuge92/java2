@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+리다이겟트는 새로운 요청이 발생하는 것! (리퀘스트스코프)
+httpServletRequest객체는 소멸 후 새롭게 생성되며
+HttpSession객체는 그대로 유지 된다.
+
+Forward 서버상에서만 이동
+
+RequestScope
+새로운 요청이 발생해 응답결과가 브라우저로 전달될때까지 요청정보가 담겨있는 Request객체를 사용할 수 있다.
+
+이 사용범위를 RequestScope라고 부른다.
+
+
+
+
+Properties 절대 변하지 않는 값들이 있다.
+
+프로퍼티스 파일에 작성하고 이를 가져다 사용합나다.
+@PropertySource @PropertySources
+<ex>
+@PropertySources({ @PropertySource("/WEB-INF/pro/d1.properties"), @PropertySource("/WEB-INF/pro/d2.properties") })
+public class Test {.......
+</ex>
+
+
+
+@Value : properties파일에 작성한 값을 주입받을 수 있다.
+ex) 
+@Value("(프로터티안의 객체이름=)프로퍼티이름")
+String a; 
+/ex)
+
+Properites에 작성한 값을 JSP에서 사용하고자 한다면 몇 가지 설정 피룡
+
+
+
+@Valid Controller에서 주입받은 Bean에
+@Valid를 설정하면 유효성 검사를 실시 할 수 있다.
+검사결과를 사용하고자 한다면 BindingResult객체를 주입받아야 한다.
+
+<ex> data1클래스 안에 
+@Size(min = 2, max = 10)
+private String s1;
+@Max(100)
+private int s2;
+</ex>
+유효성 검사
+@digit @valid @size
+@MAX @MIN @NULL @NOTNULL
+
+
+프로퍼티스를 이용한 메시지 설정가능
+
+유효성 검사를 통과하지 못하면 jsp에 오류 정보 전달됨
+
+codes[0]으로 값을 자여올수 있다.
+에러종류, 빈이름, 프로퍼티 이름
+
+유효성 검증에 통과하지 못해서
+다시 입력화면으로 돌아왔다 돌아왔을 때 기존에 입력했던 내용을 유지하고 싶다.
+=>form컷텀 태그 <form:form...
+
+
+
+
+Sqlsessionfactorybean
+데이터베이스 접속정보, mapper파일 관리하는 bean
+
+sqlsessionTemplate
+쿼리문 전달하는 bean =>필요한 쿼리 실행하게 됨.
+
+
+Restfull api서버: 응답결과를 데이터만으로 구성하여 클라이언트로 전달.
+
+@RestController: return을 하게 되면 그 값 자체를 브라우저로 전달하는 응답결과로 생성해서 보냄;
+=>jackson data bind  
+
+
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .notice{
+            border-top: 4px solid black;
+            border-bottom: 4px solid black;
+        }
+        table{
+            border-spacing: 15px;
+            border-collapse: collapse;
+        }
+        table tr{border-bottom: 1px solid darkgray;}
+        th{text-align: left;}
+        td{padding: 20px;}
+        button{
+            background: #e8728a;
+	color: #fff;
+	border: none;
+	height: 20px;
+	padding: 0 2em;
+	cursor: pointer;
+	transition: 800ms ease all;
+    outline: none;
+    margin-left: 30%;
+    margin-top: 20px;
+        }
+
+        #write_button:hover {
+	background: #fff;
+	color: #e8728a;
+}
+
+#write_button:before, button:after {
+	content: '';
+	position: absolute;
+	top: 0;
+	right: 0;
+	height: 2px;
+	width: 0;
+	background: #e8728a;
+	transition: 400ms ease all;
+}
+
+#write_button:after {
+	right: inherit;
+	top: inherit;
+	left: 0;
+	bottom: 0;
+}
+
+#write_button:hover:before, #write_button:hover:after {
+	width: 100%;
+	transition: 800ms ease all;
+}
+span{color: red;}
+    </style>
+</head>
+<body>
+  <h1>1:1문의</h1>
+			<table class="notice" id='notice' border="0">
+                <tr>
+                    <td>
+                    구분<span>*</span>
+                    </td>
+                <td>
+                    <input type="radio" name="gu" value="cal">기사
+                    <input type="radio" name="gu" value="mem">회원정보
+                    <input type="radio" name="gu" value="etc">기타
+                </td>
+                </tr>
+                <tr>
+                    <td>
+                    제목<span>*</span>
+                    </td>
+                <td>
+                    <input type="text">
+                </td>
+                </tr>
+				<tr>
+                    <td>
+                    문의내용<span>*</span>
+                    </td>
+                <td>
+                    <textarea cols="30" rows="10"></textarea>
+                </td>
+                </tr>
+            </table>
+            <button id="write_button" type="submit">등록</button>
+            
+ 
+</body>
+</html>

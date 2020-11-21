@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+<style>
+    
+*{margin: 0; padding: 0;} 
+body{
+    padding: 30px;
+}
+
+/* 왼쪽*/
+aside#left{
+    float: left;
+    width: 10em;
+    margin-right: 1em;
+}
+aside#left ul{ list-style: none}
+aside#left ul li{
+    padding: 5px 10px;
+}
+aside#left ul li a{
+    text-decoration: none;
+    color: black;
+}
+aside#main{
+    float: left;
+}
+aside#left ul li a:hover{
+    background: #fff;
+	color: #e8728a;
+}
+
+
+section#main{
+    float: left;
+}
+ 
+
+</style>
+</head>
+<body>
+    <aside id="left">
+        <h3>고객센터</h3>
+        <br>
+        <ul>
+            <li><a href="noti.html" target="iframe1">공지사항</a></li>
+            <li><a href="wagle.html" target="iframe1">wagle</a></li>
+            <li><a href="1.html" target="iframe1">1:1문의</a></li>
+        </ul>
+    </aside>
+    <section id="main">
+        <article>
+            <iframe name="iframe1" src="noti.html" frameborder="0" width="600" height="600"></iframe>
+        </article>
+    </section>
+</body>
+</html>
+ 
